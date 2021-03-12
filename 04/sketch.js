@@ -6,8 +6,8 @@ fill(0);
 noStroke(0);
 
 shearX(PI / 7.0); //shear the shape from the X, effected other shapes shear.
-rect(-100, 250, 150, 500, 0,0,100,0); // (x,y,w,h,tl,tr,br,bl)
-rect(250, 250, 150, 500, 0,0,100,0);
+rect(-100, 250, 150, 500, 0,100,100,0); // (x,y,w,h,tl,tr,br,bl)
+rect(250, 250, 150, 500, 0,100,100,0);
 
 shearX(PI / -4.0); //shear the shape from the X, left part lines
 rect(730, 540, 30, 210, 0,0,100,0);
@@ -22,7 +22,7 @@ rect(1050, 250, 5, 500, 0,0,100,0);
 rect(1030, 250, 1, 500, 0,0,100,0);
 noStroke(0);
 for (var i = 0; i <20; i++){ 
-  rect(random(1030,800), 250, random(1,3), 500);
+  rect(random(1030,850), 250, random(1,4), 500);
 } ///right part lines random for loop
 
 }
