@@ -81,9 +81,7 @@ var points = font.textToPoints('W', 150, 740, 600);
   } 
 
 }
-
-function draw() {
-}
+ 
 
 
 
