@@ -32,9 +32,6 @@ function setup() {
   
 }
 
-function mousePressed() {
-  saveCanvas("p5-sketche-01","jpg")
-}
 
 
 
