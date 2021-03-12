@@ -5,22 +5,10 @@ function setup() {
 }
 
 function draw(){
-  // if(mousePressed){
-  //   background(300);
-  // }
   stroke(0);
   fill(300);
   rect(mouseX, mouseY, 150, 10);
-}
-
-
-
-
-
-
-
-
-
+} //draw multiple times where the mouse go
 
 
 function keyPressed() {

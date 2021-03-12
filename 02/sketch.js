@@ -1,40 +1,87 @@
-function setup() {
-  var c = createCanvas(1000, 1000);
-  background(300);
+var font; //creat font
 
-  noStroke(255);
-
-  fill(0);
-  triangle(160,300,580,300,580,800); //x1,y1,x2,y2,x3,y3 // x,y-coordinate each of the first to third points
-
-  fill(0);
-  triangle(330,200,830,200,830,800);
-
-  fill(300);
-  triangle(150,200,485,200,485,600)
-
-  fill(300);
-  triangle(400,200,730,200,730,600) //,-100
-
-  fill(0);
-  rect (30,300, 150, 3)
-  rect (580,200, 250, 3);
-  rect (190,300, 400, 1);
-  rect (590,300, 3, 600);
-  rect (840,0, 9, 600); //x,y,w,h
-  rect (120,800, 900,20);
-  rect (160,200, 1, 900);
-  rect (30,30, 90, 1000);
-
-  fill(300);
-  rect (482,350, 3, 400);
-  rect (727,290, 3, 400);
-  
+function preload(){ //loading page
+  font =  loadFont('font.otf'); //load the font file
 }
 
 
+function setup() { //draw once
+  createCanvas(1000, 1000); //width & hight in pixels
+  background(0); // color 0(black) to 100(white)
+  // textFont(font); // call textfont
+  // textSize(500); //size px
+  // fill(); //text color //? when the color value is 100, it's grey. guess background color effected?
+  // text('W', 200, 700); //contents of text, x, y location
+
+  //doesn't need to draw the text anymore!
 
 
+  var points = font.textToPoints('W', 140, 740, 600); //create x,y locations arrays //contents, x, y, size
+  console.log(points); //call the varible
+
+  for (var i = 0; i <points.length; i++){ ////creat all the dots following the outline of the letters
+    var pt = points[i];
+    stroke(30); //color
+    strokeWeight(9);
+    point(pt.x, pt.y);
+  } // set the for loof to make dot's of outline of the text
+
+
+  var points = font.textToPoints('W', 110, 780, 600); //create x,y locations arrays //contents, x, y, size
+  console.log(points); //call the varible
+
+  for (var i = 0; i <points.length; i++){ ////creat all the dots following the outline of the letters
+    var pt = points[i];
+    stroke(50); //color
+    strokeWeight(9);
+    point(pt.x, pt.y);
+  } // set the for loof to make dot's of outline of the text
+
+
+  var points = font.textToPoints('W', 130, 760, 600); 
+  console.log(points)
+
+  for (var i = 0; i <points.length; i++){
+    var pt = points[i];
+    stroke(100); 
+    strokeWeight(9);
+    point(pt.x, pt.y);
+  }
+
+
+var points = font.textToPoints('W', 150, 740, 600); 
+  console.log(points)
+
+  for (var i = 0; i <points.length; i++){ 
+    var pt = points[i];
+    stroke(150);
+    strokeWeight(9);
+    point(pt.x, pt.y);
+  } 
+
+
+ var points = font.textToPoints('W', 170, 720, 600); 
+  console.log(points)
+
+  for (var i = 0; i <points.length; i++){ 
+    var pt = points[i];
+    stroke(200);
+    strokeWeight(9);
+    point(pt.x, pt.y);
+  } 
+
+  var points = font.textToPoints('W', 190, 700, 600); 
+  console.log(points)
+
+  for (var i = 0; i <points.length; i++){ 
+    var pt = points[i];
+    stroke(250);
+    strokeWeight(9);
+    point(pt.x, pt.y);
+  } 
+
+}
+ 
 
 
 
@@ -45,3 +92,6 @@ function setup() {
 
 
 //////sources, references, work cited
+//////https://p5js.org/ko/examples/typography-words.html /text
+//////https://youtu.be/4hA7G3gup-4 / making multiple dots following the outline of the text using the for loop
+//////https://www.fontsquirrel.com/fonts/list/popular /otf font sources
