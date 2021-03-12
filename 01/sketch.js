@@ -26,8 +26,8 @@ function setup() { //draw once
   } // set the for loof to make dot's of outline of the text
 }
 
-// function draw() { //draw mutiple times
-// }
+function draw() { //draw mutiple times
+}
 
 
 
