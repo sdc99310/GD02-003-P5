@@ -25,9 +25,9 @@ function setup() {
 }
 
 
-function mousePressed() {
-  saveCanvas("p5-sketche-01","png")
-}
+// function mousePressed() {
+//   saveCanvas("p5-sketche-05","png")
+// }
 
 
 ///Q.can i move all the variables x,y at once? holidng all the codes using the brackets{...}?

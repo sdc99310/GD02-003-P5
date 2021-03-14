@@ -15,5 +15,5 @@ function draw() {
 
 
 // function mousePressed() {
-//   saveCanvas("p5-sketche-01","jpg")
+//   saveCanvas("p5-sketche-06","png")
 // }
