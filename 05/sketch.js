@@ -32,7 +32,7 @@ function setup() {
 
 ///Q.can i move all the variables x,y at once? holidng all the codes using the brackets{...}?
 
-//////fundimental code that i playing
+//////fundimental code that i played
 //   for (i=0; i<200; i=i+2) {
 
 //     rotate(PI / 360);
