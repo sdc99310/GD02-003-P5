@@ -15,5 +15,10 @@ function setup() {
 
 
 // function mousePressed() {
-//   saveCanvas("p5-sketche-07","png")
+//   saveCanvas("p5-sketche-08","png")
 // }
+
+
+
+////////sources, references, work cited
+//https://youtu.be/fBqaA7zRO58
