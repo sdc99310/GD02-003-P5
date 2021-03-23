@@ -2,9 +2,10 @@ function setup() {
   
 //02.color change, appears different pattern
 
-  background(300);//
+createCanvas(1000, 1000);
+background(300);//
   noFill(0);
-  stroke(0); 
+  stroke(0);   
   
     for (i=0; i<500; i=i+4) {
       
