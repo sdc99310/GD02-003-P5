@@ -7,17 +7,14 @@ function preload(){
 function setup() {
   noStroke();
   createCanvas(1000, 1000);
-  background(250);
-  
-
-  
-
-  
+  background (random (100,300), random (100,255), random (100,255), random (255)); 
 
 }
 
 
 function draw(){
+  frameRate(3);
+  
 
   image(letterW,0,0);
 
@@ -38,7 +35,7 @@ function draw(){
         pixelColor = get(j, i);//array of pixels, like a grid(read the color value)
   
         fill(pixelColor);
-        randomSize = random(5,50)
+        randomSize = random(10,50)
         ellipse(j,i,randomSize, randomSize);
       }
   
