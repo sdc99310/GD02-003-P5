@@ -7,13 +7,13 @@ function preload(){
 function setup() {
   noStroke();
   createCanvas(1000, 1000);
-
+  // background (random (100,300), random (100,255), random (100,255), random (255)); 
 }
 
 
 function draw(){
-  frameRate(2);
-  background (random (100,300), random (100,255), random (100,255), random (255)); 
+  // frameRate(2);
+  // background (random (100,300), random (100,255), random (100,255), random (255)); 
 
   image(letterW,0,0);
 
@@ -28,7 +28,7 @@ function draw(){
     
   
   
-    unitSize = 35;
+    unitSize = 25;
     for (i=0; i<height; i=i+unitSize){
       for (j=0; j<width; j=j+unitSize){
         pixelColor = get(j, i);//array of pixels, like a grid(read the color value)
