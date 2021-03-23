@@ -7,14 +7,13 @@ function preload(){
 function setup() {
   noStroke();
   createCanvas(1000, 1000);
-  background (random (100,300), random (100,255), random (100,255), random (255)); 
 
 }
 
 
 function draw(){
-  frameRate(3);
-  
+  frameRate(2);
+  background (random (100,300), random (100,255), random (100,255), random (255)); 
 
   image(letterW,0,0);
 
@@ -42,6 +41,6 @@ function draw(){
     }
 }
 
-// function mousePressed() {
-//   saveCanvas("p5-sketche-12","png")
-// }
+function mousePressed() {
+  saveCanvas("p5-sketche-12","png")
+}
