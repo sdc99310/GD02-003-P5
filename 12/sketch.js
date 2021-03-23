@@ -1,19 +1,50 @@
+let letterW;
+
+function preload(){
+    letterW = loadImage('letterW.png')
+}//load the image
+
 function setup() {
+  noStroke();
   createCanvas(1000, 1000);
-  background(300);
+  background(250);
+  
 
+  
 
-  // for (i=0; i<500; i=i+10) {
-    
-
-  // }
+  
 
 }
 
 
+function draw(){
+
+  image(letterW,0,0);
 
 
+  colorMode(HSB, 250);
+  for (let i = 0; i <250; i++) {
+    for (let j = 0; j < 200; j++) {
+    fill(i, j, 300);
+      point(i, j);
+    }
+  }
+    
+  
+  
+    unitSize = 35;
+    for (i=0; i<height; i=i+unitSize){
+      for (j=0; j<width; j=j+unitSize){
+        pixelColor = get(j, i);//array of pixels, like a grid(read the color value)
+  
+        fill(pixelColor);
+        randomSize = random(5,50)
+        ellipse(j,i,randomSize, randomSize);
+      }
+  
+    }
+}
 
 // function mousePressed() {
-//   saveCanvas("p5-sketche-07","png")
+//   saveCanvas("p5-sketche-12","png")
 // }
