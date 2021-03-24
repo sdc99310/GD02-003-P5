@@ -7,7 +7,7 @@ function preload(){
 function setup() {
   noStroke();
   createCanvas(1000, 1000);
-  background (random (200), random (255), random (255), random (255)); 
+  // background (random (200), random (255), random (255), random (255)); 
 
   
 
