@@ -1,100 +1,115 @@
-//presetting
-let img
-let particles = []
-let ranPosX = []
-let startPos = []
-let numParticles = 2000
-let loopDuration = 1 * 60
+//pre-setting for font/ graphic
+let graphic
+let font
+let canvas
 
-function preload() {
-  img = loadImage('W.jpg')
+//load the font
+function preload(){
+  font = loadFont('font.ttf')
 }
+
+//loopduration (animation)
+const loopDuration = 3 * 60
 
 function setup() {
   createCanvas(1000, 1000);
-  background(300);
+  background(255);
 
-  // change the pixel motion
-  noiseSeed(223)
+  graphic = createGraphics(width, height)
+//text setup
+  graphic.textFont(font)
+  graphic.textAlign(CENTER, CENTER) //x,y
+  graphic.blendMode(SCREEN)
 
-  //set the random starting position for particles
-  for (let i = 0; i < numParticles; i++) {
-    startPos [i] = 
-    creatVector(random(width),
-    random(height))
-      ranPosX[i] = random(-6, 6)
+
+  //01 big text 01
+  graphic.textSize(2000)
+  graphic.fill('rgba(101, 216, 224, 0.5)')
+  // graphic.fill('rgba(3, 104, 205, 0.5)')
+  // graphic.fill('rgba(255, 0, 0, 0.9)') //hue saturation lightness
+  graphic.text('W',width/2,height/3)// x, y location
+  //02
+  graphic.textSize(2000)
+  graphic.fill('rgba(255, 164, 45, 0.9)') //
+  // graphic.fill('rgba(1, 255, 0, 0.9)') //
+  graphic.text('W',width/1.95,height/2.55)// x, y location change
+
+
+  //01 big text 02
+  graphic.textSize(2000)
+  graphic.fill('rgba(3, 104, 205, 1)')
+  // graphic.fill('rgba(255, 0, 0, 0.9)') //hue saturation lightness
+  graphic.text('W',width/1,height/3)// x, y location
+  //02
+  graphic.textSize(2000)
+  graphic.fill('rgba(255, 164, 45, 0.9)') //
+  // graphic.fill('rgba(1, 255, 0, 0.9)') //
+  graphic.text('W',width/3.5,height/2.55)// x, y location change
+
+
+  //03 green w1
+  graphic.textSize(900)
+  graphic.fill('rgba(177, 253, 123, 1)') //
+  // graphic.fill('rgba(0, 0, 255, 0.9)') //
+  graphic.text('W',width/2,height/1.6)// x, y location change
+
+  //04 green w2
+  graphic.textSize(900)
+  graphic.stroke('rgba(177, 253, 123, 1)') //
+  // graphic.fill('rgba(0, 0, 255, 0.9)') //
+  graphic.text('W',width/2,height/8)// x, y location change
+
+}
+
+function draw() {
+
+  //set the framerate , speed?
+  let currentFrame =  frameCount % loopDuration
+  let v = currentFrame / loopDuration 
+  let u = map (v, 0, 1, 0, 2*PI)
+
+  // background('rgba(0, 255, 0, 0.9)');
+
+  ///creat tiles
+  const tiles = 80
+  const tileSize = width/ tiles
+
+  //looping each of the tiles
+  for (let x = 0; x < tiles; x++){
+    for (let y = 0; y < tiles; y++){
+
+      const distortionX = cos (u + x *300)*10
+      const distortionY = sin (u + y *0.5)*10
+
+      //applying the grid into the graphic
+      const sx = x * tileSize + distortionX
+      const sy = y * tileSize + distortionY
+      const sw = tileSize + distortionX
+      const sh = tileSize + distortionY
+
+      // appliyig the grid to end point on the canvas
+      const dx = x * tileSize
+      const dy = y * tileSize
+      const dw = tileSize
+      const dh = tileSize
+
+      //grid image from graphic into canvas
+
+      image(graphic, dx, dy, dw, dh, sx, sy, sw, sh)
+
+    }
   }
+
   
-  //set particles
-  setParticles(0)
-}
-
-function draw(){
-  let currentFrame = frameCount % loopDuration
-  let t = currentFrame / loopDuration
-  let u = map(t, 0, 1, 0, 5)
-  
-  frameRate(20)
-
-  background(0, u)
-
-  //move each of the particles
-  particles.forEach(particles => {
-    particles.move()
-  })
-////////////////////////////loop begining
-
-  if (frameCount > 0 && t === 0){
-    setParticles(t) //let's call 't'
-  }
-}
-//make setParticles function 
-function setParticles(t) {
-  for (let i =0; i <numParticles; i++){
-    let x = startPos[i].x
-    let y = startPos[i].y
-
-    let adj = floor(map(y, 0, height, 240, 300));
-    let adj2 = floor(map(y, 0, height, 300, 240));
-
-    //gradient color change
-    let c = color(`hsl(${adj}, 100%, 50%)`);
-    let c2 = color(`hsl(${adj2}, 100%, 50%)`);
-    particles[i] = new Particle(x, y, c, c2, i, t);
-  }
 }
 
 
-//particle class
-class Particle {
-
-  constructor (xIn, yIn, cIn, c2In, indIn, t) {
-    this.posX = xIn
-    this.posY = yIn
-    this.c = cIn
-    this.c2In = c2In
-    this.theta = 0
-    this.incr = 0
-    this.indIn = indIn
-    this.t = t
-    this.i = 0
-  }
-
-  update() {
-    this.incr += 0.001 //increase particle
-
-    // get color of 'i' image pixel at particle's position
-    let c = img.get(this.posX, this.posY)
-
-    // calculate angle for movement using perlin noise
-    this.theta = noise(this.posX * 0.0075, this.posY * 0.005, this.incr) * TWO_PI;
-
-    
-    
-  }
-}
 
 
 // function mousePressed() {
-//   saveCanvas("p5-sketche-21","png")
+//   saveCanvas("p5-sketche-18","png")
 // }
+
+//work cited
+//reference https://www.youtube.com/watch?v=SKDhkB8g1So
+
