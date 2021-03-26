@@ -21,7 +21,8 @@ function setup() {
   graphic.textAlign(CENTER, CENTER) //x,y
   graphic.blendMode(SCREEN)
 
-  //01
+
+  //01 big text 01
   graphic.textSize(2000)
   graphic.fill('rgba(101, 216, 224, 0.5)')
   // graphic.fill('rgba(3, 104, 205, 0.5)')
@@ -34,7 +35,7 @@ function setup() {
   graphic.text('W',width/1.95,height/2.55)// x, y location change
 
 
-  //01
+  //01 big text 02
   graphic.textSize(2000)
   graphic.fill('rgba(3, 104, 205, 1)')
   // graphic.fill('rgba(255, 0, 0, 0.9)') //hue saturation lightness
@@ -46,13 +47,13 @@ function setup() {
   graphic.text('W',width/3.5,height/2.55)// x, y location change
 
 
-  //03
+  //03 green w1
   graphic.textSize(900)
   graphic.fill('rgba(177, 253, 123, 1)') //
   // graphic.fill('rgba(0, 0, 255, 0.9)') //
   graphic.text('W',width/2,height/1.6)// x, y location change
 
-  //04
+  //04 green w2
   graphic.textSize(900)
   graphic.stroke('rgba(177, 253, 123, 1)') //
   // graphic.fill('rgba(0, 0, 255, 0.9)') //
