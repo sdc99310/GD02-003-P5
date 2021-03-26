@@ -92,7 +92,7 @@ function draw() {
     for (let y = 0; y < tiles; y++){
 
       const distortionX = cos (u + x *300)*30
-      const distortionY = sin (u + y *0.5)*20
+      const distortionY = sin (u + y * 0.5)*20
 
       //applying the grid into the graphic
       const sx = x * tileSize + distortionX
@@ -135,9 +135,9 @@ function setGradient(x, y, w, h, c1, c2, axis) {
 
 
 
-// function mousePressed() {
-//   saveCanvas("p5-sketche-18","png")
-// }
+function mousePressed() {
+  saveCanvas("p5-sketche-21","png")
+}
 
 //work cited
 //reference https://www.youtube.com/watch?v=SKDhkB8g1So
