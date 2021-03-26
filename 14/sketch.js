@@ -2,7 +2,7 @@ let pg;
 let font;
 let rgba = ['rgba(255, 0, 0, 0.9)', 
             'rgba(0, 255, 0, 0.9)', 
-            'rgba(0, 0, 255, 0.9)'] //color, 
+            'rgba(0, 0, 255, 0.9)'] //set RGBA color
 
 
 function setup() {
@@ -29,5 +29,6 @@ function setup() {
 
 ////////work cited
 //font-  https://www.fontsquirrel.com/fonts/list/popular
-//https://editor.p5js.org/p5user1/sketches/KGT8KMUlb
+//code reference- https://editor.p5js.org/p5user1/sketches/KGT8KMUlb
 //blendmode-   https://p5js.org/reference/#/p5/blendMode
+//rgba color- https://p5js.org/reference/#/p5/color
