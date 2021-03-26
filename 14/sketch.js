@@ -47,11 +47,12 @@ function draw(){
   // background('rgba(3, 251, 226, 1)')
   
 
-  let currentFrame =  frameCount % loopDuration
-
+  let currentFrame =  frameCount % loopDuration 
+  //letter wiggly motion 
   let v = currentFrame / loopDuration
-  let u = map(v, 0, 1, 0, PI)
+  let u = map(v, 0, 1, 0.5, PI)
 
+  // wave value
   for (let y = 0; y<tiles; y++){
 
     for( let x = 0; x<tiles; x++){
@@ -80,9 +81,9 @@ function draw(){
 
 
 
-// function mousePressed() {
-//   saveCanvas("p5-sketche-14","png")
-// }
+function mousePressed() {
+  saveCanvas("p5-sketche-14","png")
+}
 
 
 
