@@ -1,15 +1,20 @@
 //pre-setting 
 let pg, font, tileSize
 let rgba = ['rgba(255, 0, 0, 0.9', 
-            'rgba(0, 255, 0, 0.9)',
-             'rgba(0, 0, 255, 0.9)']
+            'rgba(10, 155, 2, 0.9)',
+            'rgba(0, 0, 255, 0.9)']
 
-let textSize = 1500
-let tiles = 80
+let textSize = 1000
+let tiles = 95
+
+    ////background gradient
+      const Y_AXIS = 1;
+      const X_AXIS = 2;
+      let b1, b2, c1, c2;
 
 //font preload
 function preload(){
-  font = loadFont('font.otf')
+  font = loadFont('SEASRN__.ttf')
 }
 
 function setup() {
@@ -17,24 +22,40 @@ function setup() {
   
   pg = createGraphics(width, height)//graphic
   pg.blendMode(SCREEN)//colormode
+  blendMode(BLEND)
 
-  ///font setup
+//gradient color set
+  // c1 = color(2252, 255, 1);
+  // c2 = color(205, 11, 255);
+
+  c1 = color(205, 11, 255);
+  c2 = color(176, 255, 54);
+
+
+//   background: rgba(176, 255, 54, 1.0);
+// background: -webkit-linear-gradient(bottom, rgba(176, 255, 54, 1.0), rgba(205, 11, 255, 1.0));
+// background: -moz-linear-gradient(bottom, rgba(176, 255, 54, 1.0), rgba(205, 11, 255, 1.0));
+// background: linear-gradient(to top, rgba(176, 255, 54, 1.0), rgba(205, 11, 255, 1.0));
+
+
+
+ ///font setup
   pg.textFont(font)
   pg.textAlign(CENTER, CENTER)
   pg.translate(width / 2, height / 3)//location
   pg.textSize(textSize)
   //1
-  pg.fill(rgba[0])
+  pg.fill(rgba[0]) //rgba(255, 0, 0, 0.9
   pg.text('W',2, 2)
   //2
-  pg.fill(rgba[1])
+  pg.fill(rgba[1]) //rgba(0, 255, 0, 0.9)
   pg.text('w', 0, 0)
   //3
-  pg.fill(rgba[2])
-  pg.text('W', -2, -2)
+  pg.fill(rgba[2]) //'rgba(0, 0, 255, 0.9)'
+  pg.text('W', -50, -50)
   //4
-  pg.fill(rgba[2])
-  pg.text('W', 2, 2)
+  pg.fill(rgba[2]) //'rgba(0, 0, 255, 0.9)'
+  pg.text('W', 10, 10)
 
   tileSize = width / tiles
 
@@ -43,7 +64,7 @@ function setup() {
 }
 
 function draw(){
-  background('rgba(0, 0, 0, 0.3)')
+  setGradient(0, 0, width , height, c1, c2, Y_AXIS);
 
   //tile for loop
   for (let y = 0; y < tiles; y++){
@@ -69,10 +90,24 @@ function draw(){
   }
 }
 
+function setGradient(x, y, w, h, c1, c2, axis) {
+  noFill();
 
-// function mousePressed() {
-//   saveCanvas("p5-sketche-20","png")
-// }
+  if (axis === Y_AXIS) {
+    // top to bottom gradient
+    for (let i = y; i <= y + h; i++) {
+      let inter = map(i, y, y + h, 0, 1);
+      let c = lerpColor(c1, c2, inter);
+      stroke(c);
+      line(x, i, x + w, i);
+    }
+  }
+}
+
+function mousePressed() {
+  saveCanvas("p5-sketche-20","png")
+}
 
 ///work cited
 //font https://www.fontspace.com/contender-version-font-f53852
+//gradient https://p5js.org/ko/examples/color-linear-gradient.html
