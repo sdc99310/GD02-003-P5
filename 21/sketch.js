@@ -3,9 +3,13 @@ let graphic
 let font
 let canvas
 
+const Y_AXIS = 1;
+const X_AXIS = 2;
+let b1, b2, c1, c2;
+
 //load the font
 function preload(){
-  font = loadFont('font.ttf')
+  font = loadFont('font.otf')
 }
 
 //loopduration (animation)
@@ -15,16 +19,23 @@ function setup() {
   createCanvas(1000, 1000);
   background(255);
 
+  c1 = color(176, 255, 54);
+  c2 = color(205, 11, 255);
+
+ 
+  
+
   graphic = createGraphics(width, height)
 //text setup
   graphic.textFont(font)
   graphic.textAlign(CENTER, CENTER) //x,y
   graphic.blendMode(SCREEN)
+  blendMode(BLEND)
 
 
   //01 big text 01
   graphic.textSize(2000)
-  graphic.fill('rgba(101, 216, 224, 0.5)')
+  graphic.fill('rgba(100, 116, 224, 0.5)')
   // graphic.fill('rgba(3, 104, 205, 0.5)')
   // graphic.fill('rgba(255, 0, 0, 0.9)') //hue saturation lightness
   graphic.text('W',width/2,height/3)// x, y location
@@ -48,13 +59,13 @@ function setup() {
 
 
   //03 green w1
-  graphic.textSize(900)
+  graphic.textSize(1500)
   graphic.fill('rgba(177, 253, 123, 1)') //
   // graphic.fill('rgba(0, 0, 255, 0.9)') //
   graphic.text('W',width/2,height/1.6)// x, y location change
 
   //04 green w2
-  graphic.textSize(900)
+  graphic.textSize(1500)
   graphic.stroke('rgba(177, 253, 123, 1)') //
   // graphic.fill('rgba(0, 0, 255, 0.9)') //
   graphic.text('W',width/2,height/8)// x, y location change
@@ -62,6 +73,8 @@ function setup() {
 }
 
 function draw() {
+
+  setGradient(width / 2, 0, width / 2, height, c2, c1, Y_AXIS);
 
   //set the framerate , speed?
   let currentFrame =  frameCount % loopDuration
@@ -71,15 +84,15 @@ function draw() {
   // background('rgba(0, 255, 0, 0.9)');
 
   ///creat tiles
-  const tiles = 80
+  const tiles = 100
   const tileSize = width/ tiles
 
   //looping each of the tiles
   for (let x = 0; x < tiles; x++){
     for (let y = 0; y < tiles; y++){
 
-      const distortionX = cos (u + x *300)*10
-      const distortionY = sin (u + y *0.5)*10
+      const distortionX = cos (u + x *300)*30
+      const distortionY = sin (u + y *0.5)*20
 
       //applying the grid into the graphic
       const sx = x * tileSize + distortionX
@@ -102,6 +115,22 @@ function draw() {
 
   
 }
+
+function setGradient(x, y, w, h, c1, c2, axis) {
+  noFill();
+
+  if (axis === Y_AXIS) {
+    // 위에서 아래 방향 그래디언트
+    for (let i = y; i <= y + h; i++) {
+      let inter = map(i, y, y + h, 0, 1);
+      let c = lerpColor(c1, c2, inter);
+      stroke(c);
+      line(x, i, x + w, i);
+    }
+
+  }
+}
+
 
 
 
