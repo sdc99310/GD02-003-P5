@@ -5,7 +5,7 @@ let size = 1000
 let lineCount = 2
 let lineSpacing = size / lineCount // spacing between the lines
 let lineWidth = size + 20//right line width
-let subPoints = 80 
+let subPoints = 80 // value 10 is also creat interesting shape
 let xOff = lineWidth / subPoints
 let loopDuration = 6 * 60
 let px = 0
@@ -97,11 +97,11 @@ function draw() {
 
 
 
-
-
 // function mousePressed() {
-//   saveCanvas("p5-sketche-16","png")
+//   saveCanvas("p5-sketche-17","png")
 // }
 
+
+
 //work citation
-//
+//code reference- https://editor.p5js.org/p5user1/sketches/aOT3dzdd1
