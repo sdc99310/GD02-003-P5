@@ -120,7 +120,7 @@ function setGradient(x, y, w, h, c1, c2, axis) {
   noFill();
 
   if (axis === Y_AXIS) {
-    // 위에서 아래 방향 그래디언트
+    // top to bottom 
     for (let i = y; i <= y + h; i++) {
       let inter = map(i, y, y + h, 0, 1);
       let c = lerpColor(c1, c2, inter);
@@ -135,10 +135,10 @@ function setGradient(x, y, w, h, c1, c2, axis) {
 
 
 
-function mousePressed() {
-  saveCanvas("p5-sketche-21","png")
-}
+// function mousePressed() {
+//   saveCanvas("p5-sketche-21","png")
+// }
 
 //work cited
 //reference https://www.youtube.com/watch?v=SKDhkB8g1So
-
+//gradient https://p5js.org/ko/examples/color-linear-gradient.html
