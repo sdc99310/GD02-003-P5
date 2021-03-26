@@ -26,6 +26,7 @@ function draw(){
   let u = map((t), 0, 1, 0, PI)
 
   background(255)
+  // background('rgba(172, 255, 117, 0.8)')
 
   points.forEach(point => {
     push()
