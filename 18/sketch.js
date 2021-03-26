@@ -15,7 +15,7 @@ function setup() {
   createCanvas(1000, 1000);
   background(0);
 
-  graphic = creatGraphic(width, height)
+  graphic = createGraphics(width, height)
 //text setup
   graphic.textFont(font)
   graphic.textAlign(CENTER, CENTER) //x,y
@@ -48,11 +48,28 @@ function draw() {
   const tiles = 24
   const tileSize = width/ tiles
 
+  //looping each of the tiles
   for (let x = 0; x < tiles; x++){
     for (let y = 0; y < tiles; y++){
 
       const distortionX = cos (u + x *0.5)*30
-      const distortionY = cos (u + y *0.5)*30
+      const distortionY = sin (u + y *0.5)*30
+
+      //applying the grid into the graphic
+      const sx = x * tileSize + distortionX
+      const sy = y * tileSize + distortionY
+      const sw = tileSize + distortionX
+      const sh = tileSize + distortionY
+
+      // appliyig the grid to end point on the canvas
+      const dx = x * tileSize
+      const dy = y * tileSize
+      const dw = tileSize
+      const dh = tileSize
+
+      //grid image from graphic into canvas
+
+      image(graphic, dx, dy, dw, dh, sx, sy, sw, sh)
 
     }
   }
@@ -70,3 +87,4 @@ function draw() {
 //reference https://www.youtube.com/watch?v=SKDhkB8g1So
 //graphic - 
 //blend mode- 
+//distortion-
