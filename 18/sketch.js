@@ -35,6 +35,30 @@ function setup() {
   graphic.text('W',width/2.05,height/3.05)// x, y location change
 }
 
+function draw() {
+
+  //set the framerate , speed?
+  let currentFrame =  frameCount % loopDuration
+  let v = currentFrame / loopDuration 
+  let u = map (v, 0, 1, 0, 2*PI)
+
+  background(0);
+
+  ///creat tiles
+  const tiles = 24
+  const tileSize = width/ tiles
+
+  for (let x = 0; x < tiles; x++){
+    for (let y = 0; y < tiles; y++){
+
+      const distortionX = cos (u + x *0.5)*30
+      const distortionY = cos (u + y *0.5)*30
+
+    }
+  }
+
+  
+}
 
 
 
