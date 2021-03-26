@@ -1,6 +1,8 @@
+let rgba
+
 function setup() {
   createCanvas(1000, 1000);
-  background(300);
+  // background(300);
 }
 
 function setup(){
@@ -12,7 +14,7 @@ function setup(){
 function draw(){
   background(300);
   noFill();
-  stroke(0);
+  stroke('rgba(6, 6, 6, 1)');
 
   //left to right
 
