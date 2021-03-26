@@ -1,5 +1,6 @@
 //img pre setting
 let img, pg, h, w
+let img2
 let size = 1000
 // lines pre setting
 let lineCount = 2
@@ -7,11 +8,14 @@ let lineSpacing = size / lineCount // spacing between the lines
 let lineWidth = size + 20//right line width
 let subPoints = 80 // value 10 is also creat interesting shape
 let xOff = lineWidth / subPoints
-let loopDuration = 6 * 60
+let loopDuration = 6 * 60 //looping duration
 let px = 0
 let py = 30
-let c = [0, 200]
-c = ['hsl(270, 100%, 50%)', 0]
+let c = [300, 200]
+
+c = ['hsl(63, 100%, 50%)', 50] //hsl color
+// c = ['hsl(316, 100%, 50%)', 50] //hsl color
+// c = ['hsl(270, 100%, 50%)', 0] //hsl color
 
 function preload() {
   img = loadImage('w.jpg')
@@ -20,11 +24,11 @@ function preload() {
 function setup() {
   createCanvas(1000, 1000)
 
-  background(3)
+  background(0)
   rectMode(CENTER)
   
   pg = createGraphics(width, height)
-  pg.fill(255)
+  pg.fill(300)
   pg.noStroke()
   pg.image(img, 0, 0, width, height)
 
@@ -33,10 +37,13 @@ function setup() {
 }
 
 function draw() {  
+  
   let currentFrame = frameCount % loopDuration
   let t = currentFrame / loopDuration
 
   background(c[0])
+
+
   strokeWeight(2)
   
   if (frameCount > 0) {
@@ -52,7 +59,7 @@ function draw() {
         stroke(c[1])
         fill(alpha)
         
-        let n = random(0, 10)
+        let n = random(0, 10) //wiggly lines 
         let depth = -(lineSpacing + n)
         let ny = random(0, 1)
         if (y === 0) {
@@ -70,7 +77,7 @@ function draw() {
         fill(c[1])
         let b = brightness(pg.get(pos.x, pos.y))
         if (b > 1) {
-          ellipse(pos.x + random(-10, 10), pos.y - random(0, 20), 2, 2)
+          ellipse(pos.x + random(-10, 10), pos.y - random(0, 200), 2, 2)
         }
       }
     }
@@ -91,17 +98,18 @@ function draw() {
       px = 0
       py = 0
       lineSpacing = height / lineCount
-    }
+    }//when the linecount less then 80, motion start over.
   }
 }
 
 
 
-// function mousePressed() {
-//   saveCanvas("p5-sketche-17","png")
-// }
+function mousePressed() {
+  saveCanvas("p5-sketche-17","png")
+}
 
 
 
 //work citation
-//code reference- https://editor.p5js.org/p5user1/sketches/aOT3dzdd1
+//curve vertex- https://p5js.org/reference/#/p5/curveVertex
+//reference- https://editor.p5js.org/p5user1/sketches/aOT3dzdd1
